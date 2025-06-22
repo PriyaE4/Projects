@@ -1,9 +1,8 @@
 # Projects
-Perfect! Based on the structure you shared, here's a **matching format for all four of your projects**, starting with **Recycle Smart** and then the other three:
 
 ---
 
-### ♻️ **Recycle Smart**
+### ♻️ **Recycle Web Application**
 
 **Recycle Smart** is a web application that helps users locate nearby scrap buyers based on the type of material they wish to recycle. Our mission is to make recycling more accessible, efficient, and community-driven.
 
@@ -86,31 +85,3 @@ A secure voting platform built using Java that allows users to cast votes using 
 🛡️ *Designed to simulate a transparent and reliable voting experience.*
 
 ---
-
-### 🏏 **Cricket Score Calculator**
-
-A C-based console application that simulates a live cricket match scorecard by calculating real-time scores, tracking player stats, and storing match history.
-
-#### 🔧 Features
-
-* **Live Scoring** – Update runs, wickets, and overs in real-time
-* **Player Stats** – Track performance of individual players
-* **Match Summary** – Display final scores and outcomes
-* **Database Integration** – Store past match data and stats
-
-#### 🛠️ How It Works
-
-1. **Input Match Events** – Run ball-by-ball updates
-2. **Score Display** – Real-time score output on console
-3. **Save Data** – Store in database for analysis
-
-#### 💻 Tech Stack
-
-* **Language:** C
-* **Database:** MySQL (optional, for extended version)
-
-🏏 *Built to bring real-time cricket analysis to your fingertips.*
-
----
-
-Let me know if you want all this turned into a **PDF resume section** or tailored for **LinkedIn, GitHub, or a portfolio website**!
