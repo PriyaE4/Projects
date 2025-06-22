@@ -1,0 +1,506 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile - REVIV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Syne", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f0fdf4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    nav {
+      background: green;
+      color: white;
+      width: 100%;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      padding: 10px;
+    }
+
+    .nav-links a:hover {
+      background: white;
+      color: green;
+      border-radius: 5px;
+    }
+
+    .profile-container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      margin-top: 40px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .profile-info {
+      text-align: left;
+    }
+
+    .profile-info p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    footer {
+      margin-top: auto;
+      background: green;
+      color: white;
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .circle {
+      width: 100px;
+      height: 100px;
+      border: 5px solid green;
+      border-radius: 50%; /* This makes it a circle */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      left:200px;
+      overflow: hidden; /* Hides anything that goes outside the circle */
+      cursor: pointer; /* Makes the image look clickable */
+    }
+
+    .circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures the image fills the circle without distortion */
+    }
+
+    /* Hide the file input element */
+    input[type="file"] {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">REVIV</div>
+    <div class="nav-links">
+      <a href="recyclables.html">Dashboard</a>
+      <a href="slide.html" onclick="logout()">Log Out</a>
+    </div>
+  </nav>
+
+  <div class="profile-container">
+    <h2 id="usernameDisplay"></h2>
+    <div class="circle" onclick="document.getElementById('fileInput').click();">
+      <img id="profilePic" src="profile.jpg" alt="Profile Picture" />
+    </div>
+    <input type="file" id="fileInput" accept="image/*" onchange="updateProfilePic(event)" />
+    <div class="profile-info">
+      <p><strong>Full Name:</strong> <span id="fullnameDisplay"></span></p>
+      <p><strong>Email:</strong> <span id="emailDisplay"></span></p>
+      <p><strong>Address:</strong> <span id="addressDisplay"></span></p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 REVIV - Recycling for a Better Future
+  </footer>
+
+  <script>
+    // Load profile details from localStorage
+    document.getElementById("usernameDisplay").innerText = localStorage.getItem("username") || "Guest";
+    document.getElementById("fullnameDisplay").innerText = localStorage.getItem("fullname") || "-";
+    document.getElementById("emailDisplay").innerText = localStorage.getItem("email") || "-";
+    document.getElementById("addressDisplay").innerText = localStorage.getItem("address") || "-";
+
+    // Handle profile picture change
+    function updateProfilePic(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('profilePic').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile - REVIV</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Syne", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f0fdf4;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    nav {
+      background: green;
+      color: white;
+      width: 100%;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      padding: 10px;
+    }
+
+    .nav-links a:hover {
+      background: white;
+      color: green;
+      border-radius: 5px;
+    }
+
+    .profile-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 90%;
+      max-width: 1200px;
+      margin-top: 40px;
+      gap: 20px;
+    }
+
+    .left-card, .right-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 48%; /* Adjusted width to fit two cards */
+    }
+
+    .circle {
+      width: 120px;
+      height: 120px;
+      border: 5px solid green;
+      border-radius: 50%; /* Circle */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures the image fills the circle without distortion */
+    }
+
+    .profile-info {
+      text-align: left;
+    }
+
+    .profile-info p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .social-links, .account-settings, .security-settings, .additional-info {
+      margin-top: 20px;
+    }
+
+    .social-links a, .account-settings button, .security-settings button {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .social-links a {
+      color: green;
+      text-decoration: none;
+    }
+
+    .security-settings button, .account-settings button {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .security-settings button:hover, .account-settings button:hover {
+      background-color: darkgreen;
+    }
+
+    footer {
+      margin-top: 40px;
+      background: green;
+      color: white;
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .profile-container {
+        flex-direction: column;
+      }
+
+      .left-card, .right-card {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+    .progress-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  #recyclingDonutChart {
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .social-media-container {
+    margin-bottom: 100px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+  }
+
+  .social-media-links label {
+    display: block;
+    margin: 8px 0;
+    font-weight: bold;
+  }
+
+  .social-media-links input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .social-media-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .social-media-icons img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .social-media-icons h4 {
+    margin-bottom: 15px;
+  }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">REVIV</div>
+    <div class="nav-links">
+      <a href="recyclables.html">Dashboard</a>
+      <a href="slide.html" onclick="logout()">Log Out</a>
+    </div>
+  </nav>
+
+  <div class="profile-container">
+    <!-- Left Card: User Preferences, Security Settings, Additional Info -->
+    
+
+    <!-- Right Card: Profile Info (Basic Info, Profile Picture) -->
+    <div class="right-card">
+      <h2 id="usernameDisplay"></h2>
+      <div class="circle">
+        <img src="profile.jpg" alt="Profile Picture" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <span>Profile Picture</span>
+      </div>
+      
+      <input type="file" id="fileInput" accept="image/*" onchange="updateProfilePic(event)" style="display: none;" />
+      
+      <div class="profile-info">
+        <p><strong>Full Name:</strong> <span id="fullnameDisplay"></span></p>
+        <p><strong>Email:</strong> <span id="emailDisplay"></span></p>
+        <p><strong>Phone Number:</strong> <span id="phoneDisplay"></span></p>
+        <p><strong>Address:</strong> <span id="addressDisplay"></span></p>
+      </div>
+    </div>
+    <div class="left-card">
+      <h3>User Preferences</h3>
+      <p><strong>Language:</strong> English</p>
+      <p><strong>Notifications:</strong> Enabled</p>
+      <div class="social-media-container">
+        <h3>Social Media Links</h3>
+        <div class="social-media-links">
+          <label for="instagram">Instagram:</label>
+          <input type="url" id="instagram" placeholder="https://www.instagram.com/username" />
+          
+          <label for="twitter">X (Twitter):</label>
+          <input type="url" id="twitter" placeholder="https://twitter.com/username" />
+          
+          <label for="telegram">Telegram:</label>
+          <input type="url" id="telegram" placeholder="https://t.me/username" />
+      
+          <button onclick="saveSocialMediaLinks()">Save Links</button>
+        </div>
+      
+        <div class="social-media-icons">
+          <h4>Your Social Media:</h4>
+          <div id="socialLinks">
+            <!-- Social media icons will be displayed here -->
+            <img src="insta.jfif" alt="description" />
+            <img src="x.png" alt="description" />
+
+          </div>
+        </div>
+      </div>
+      
+
+      <!-- <h3>Additional Info</h3>
+      <p><strong>Account Created:</strong> January 1, 2022</p>
+      <p><strong>Last Login:</strong> April 10, 2025</p> -->
+      <div class="progress-container">
+        <h3>Recycling Progress</h3>
+        <canvas id="recyclingDonutChart" width="150" height="150"></canvas>
+      </div>
+      
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 REVIV - Recycling for a Better Future
+  </footer>
+
+  <script>
+    // Load profile details from localStorage
+    document.getElementById("usernameDisplay").innerText = localStorage.getItem("username") || "Guest";
+    document.getElementById("fullnameDisplay").innerText = localStorage.getItem("fullname") || "-";
+    document.getElementById("emailDisplay").innerText = localStorage.getItem("email") || "-";
+    document.getElementById("phoneDisplay").innerText = localStorage.getItem("phone") || "-";
+    document.getElementById("addressDisplay").innerText = localStorage.getItem("address") || "-";
+
+    // Handle profile picture change
+    function updateProfilePic(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('profilePic').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
+    const recyclingData = {
+    aluminum: 70,  // Percentage recycled
+    plastic: 50,
+    glass: 30,
+    paper: 80,
+  };
+
+  var ctx = document.getElementById('recyclingDonutChart').getContext('2d');
+  var recyclingDonutChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Aluminum', 'Plastic', 'Glass', 'Paper'],
+      datasets: [{
+        label: 'Recycling Progress',
+        data: [
+          recyclingData.aluminum,
+          recyclingData.plastic,
+          recyclingData.glass,
+          recyclingData.paper
+        ],
+        backgroundColor: ['#66b3ff', '#ffcc99', '#99ff99', '#ff9999'],
+        hoverOffset: 4,
+      }]
+    },
+    options: {
+      responsive: true,
+      animation: {
+        animateRotate: true,
+        animateScale: true
+      },
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        tooltip: {
+          callbacks: {
+            label: function(tooltipItem) {
+              return tooltipItem.label + ': ' + tooltipItem.raw + '% Recycled';
+            }
+          }
+        }
+      }
+    }
+  });
+  </script>
+</body>
+</html>

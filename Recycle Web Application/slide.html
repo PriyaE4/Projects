@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+
+  <title>REVIV - Recycle & Save the Planet</title>
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      /* background-color:#095e5e ; */
+      color: #333;
+      cursor: url('lea.png'), auto;
+      background-image: url('i17.jpeg');
+      background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+image-rendering: auto;
+
+    }
+
+    nav {
+      background: #2e7d32;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .slideshow-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .active {
+      opacity: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      /* background: #eccbd6; */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px #2E6F40
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero p {
+      font-size: 20px;
+    }
+
+    .hero .btn {
+      background:#253D2C;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .hero .btn:hover {
+      background: #A5D6A7;
+    }
+
+    .dark-theme {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    .toggle-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #444;
+      color: #fff;
+    }
+
+    .leaf {
+      position: fixed;
+      top: -80px;
+      width: 60px;
+      height: 60px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      z-index: 9999;
+      animation: fall var(--fall-duration) linear forwards;
+      transform: rotate(var(--rotate-angle));
+      left: var(--start-x);
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) translateX(0) rotate(var(--rotate-angle));
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) translateX(var(--sway)) rotate(calc(var(--rotate-angle) + 720deg));
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav> -->
+
+
+  <header class="hero">
+    <div class="slideshow-container">
+      <div class="slide active" style="background-image: url('p1.jpg');"></div>
+      <div class="slide" style="background-image: url('p2.jpg');"></div>
+      <div class="slide" style="background-image: url('p3.jpg');"></div>
+      <div class="slide" style="background-image: url('p4.jpg');"></div>
+      <div class="slide" style="background-image: url('p5.jpg');"></div>
+      <div class="slide" style="background-image: url('p6.png');"></div>
+      <div class="slide" style="background-image: url('p7.jpg');"></div>
+      <div class="slide" style="background-image: url('p8.jpg');"></div>
+      <div class="slide" style="background-image: url('p9.jpg');"></div>
+      <div class="slide" style="background-image: url('p10.jpg');"></div>
+      <div class="slide" style="background-image: url('p11.jpg');"></div>
+      <div class="slide" style="background-image: url('p12.jpg');"></div>
+    </div>
+    <div class="hero-content">
+        <h1 style="font-family: 'Pacifico', cursive; font-size: 48px; color:  #253D2C; text-shadow: 0 0 5px  #2E6F40;">REVIV</h1>
+        <h1 style="font-family: 'Poppins', Verdana; font-size: 32px; color: #061209; text-shadow: 0 0 5px #2E6F40, 0 0 10px #2E6F40;">Join Us in Recycling & Saving the Planet</h1>
+<p style="font-family: 'Poppins', Verdana; font-size: 18px; color: rgb(15, 0, 0); text-shadow: 0 0 3px #68BA7F, 0 0 6px #68BA7F;">Reduce plastic waste by finding local scrap buyers and making an impact.</p>
+
+        <!-- <h1>Join Us in Recycling & Saving the Planet</h1>
+        <p>Reduce plastic waste by finding local scrap buyers and making an impact.</p> -->
+        <a class="btn" onclick="handleClick()">Start Recycling</a>
+      </div>
+      
+  </header>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlides() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove("active");
+        if (index === slideIndex) {
+          slide.classList.add("active");
+        }
+      });
+      slideIndex = (slideIndex + 1) % slides.length;
+    }
+    setInterval(showSlides, 3000);
+
+    function handleClick() {
+      const leafImages = ["cursor.png", "leaf1.png", "leaf2.png", "leaf3.png"];
+      leafImages.forEach(img => {
+        for (let i = 0; i < 20; i++) {
+          createLeaf(img);
+        }
+      });
+
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 2500);
+    }
+
+    function createLeaf(imageSrc) {
+      const leaf = document.createElement("div");
+      leaf.classList.add("leaf");
+      leaf.style.backgroundImage = `url('${imageSrc}')`;
+
+      const fallDuration = (3 + Math.random() * 3).toFixed(2) + "s";
+      const rotateAngle = Math.floor(Math.random() * 360) + "deg";
+      const sway = (Math.random() * 200 - 100).toFixed(0) + "px";
+      const startX = Math.floor(Math.random() * window.innerWidth) + "px";
+
+      leaf.style.setProperty("--fall-duration", fallDuration);
+      leaf.style.setProperty("--rotate-angle", rotateAngle);
+      leaf.style.setProperty("--sway", sway);
+      leaf.style.setProperty("--start-x", startX);
+
+      document.body.appendChild(leaf);
+      setTimeout(() => {
+        leaf.remove();
+      }, 6000);
+    }
+  </script>
+</body>
+</html>

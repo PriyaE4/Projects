@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    <title>REVIV - Recycling for a Better Future</title>
+    <style>
+        * {
+        box-sizing: border-box;
+        font-family: "Syne", sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('p1.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 128, 0, 0.9);
+            padding: 15px 30px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        li {
+            margin: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: 0.3s;
+            padding: 10px;
+            cursor: pointer;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        a:hover {
+            color: green;
+            background: white;
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            width: 80%;
+            margin: 50px auto;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 100px 20px;
+            color: white;
+        }
+
+        .hero h1, .hero p {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero .btn {
+            background: #ffcc00;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff6600;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin-top: 10px;
+            border-radius: 5px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .step {
+            width: 30%;
+            padding: 10px;
+            text-align: center;
+            background: #807f7f;
+            border-radius: 8px;
+        }
+        
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 128, 0, 0.9);
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            max-height: 500px;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+        }
+        #tb{
+            color:green;
+            background-color: gold;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <div class="logo">REVIV</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <header class="hero">
+        <h1>Join Us in Recycling & Saving the Planet</h1>
+        <p>Reduce plastic waste by finding local scrap buyers and making an impact.</p>
+        <a href="register.html" class="btn">Start Recycling</a>
+    </header>
+
+    <section class="about-project">
+        <h2>About Our Recycling Project</h2>
+        <p>Our mission is to reduce plastic pollution by connecting users with verified scrap buyers.</p>
+    </section>
+
+    <section class="how-it-works">
+        <h2>How It Works?</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>1. Register</h3>
+                <p>Create an account to start recycling.</p>
+            </div>
+            <div class="step">
+                <h3>2. Enter Plastic Details</h3>
+                <p>Select the plastic type and quantity.</p>
+            </div>
+            <div class="step">
+                <h3>3. Find Scrap Buyers</h3>
+                <p>Our website shows nearby scrap buyers via Google Maps.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="impact">
+        <h2>Our Impact</h2>
+        <p>🌍 Over <strong>5000 Kg</strong> of plastic recycled so far!</p>
+        <p>👥 More than <strong>1000 users</strong> have joined the movement.</p>
+        <p>📍 Over <strong>200+ verified scrap buyers</strong> in our database.</p>
+    </section>
+    
+    <section class="map">
+        <h2>Find Nearby Recycling Centers</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30457.52614487893!2d78.3616!3d17.5188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb939bdd1d2c61%3A0x52e4a65f7e4e6e72!2sBVRIT%20Hyderabad%20College%20of%20Engineering%20for%20Women!5e0!3m2!1sen!2sin!4v1711946489337" allowfullscreen></iframe>
+    </section>
+    
+    <section class="testimonials">
+        <h2>What People Say</h2>
+        <p>“This website made it easy for me to find a scrap buyer near my home. Recycling has never been easier!” - <strong>Raj, Hyderabad</strong></p>
+        <p>“A great initiative to reduce plastic waste! I have already recycled over 50 Kg of plastic through this platform.” - <strong>Ananya, Bengaluru</strong></p>
+    </section>
+    
+    
+
+    <footer>
+        <p>&copy; 2025 REVIV - Recycling for a Better Future</p>
+    </footer>
+    <script>
+        function toggleit(){
+            document.body.classList.toggle('dark-theme');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+      
+      
+      cursor: url('lea.png'), auto;
+    }
+
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      background-color: #2e7d32;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 20px;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 15px 20px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .sidebar a:hover {
+      background-color: #256428;
+    }
+
+    .main {
+      margin-left: 250px;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    th {
+      background-color: #2e7d32;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .no-msg {
+      text-align: center;
+      font-size: 18px;
+      color: #777;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <a href="slide.html"><i class="fas fa-home"></i> Home</a>
+    <a href="admin.html"><i class="fas fa-envelope"></i> Messages</a>
+  </div>
+
+  <div class="main">
+    <h1>Received Messages</h1>
+    <div id="message-table">Loading...</div>
+  </div>
+
+  <script>
+    fetch('admin.php')
+      .then(res => res.json())
+      .then(data => {
+        const tableDiv = document.getElementById('message-table');
+
+        if (data.length === 0) {
+          tableDiv.innerHTML = "<div class='no-msg'>No messages found.</div>";
+          return;
+        }
+
+        let table = "<table><tr><th>Name</th><th>Email</th><th>Message</th></tr>";
+        data.forEach(msg => {
+          table += `<tr>
+                      <td>${msg.name}</td>
+                      <td>${msg.email}</td>
+                      <td>${msg.message}</td>
+                    </tr>`;
+        });
+        table += "</table>";
+        tableDiv.innerHTML = table;
+      })
+      .catch(err => {
+        document.getElementById('message-table').innerHTML = "<div class='no-msg'>Error loading messages.</div>";
+      });
+  </script>
+
+</body>
+</html>

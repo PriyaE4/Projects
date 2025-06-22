@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scrap Buyers Nearby</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <script>
+        function initMap() {
+            fetch("fetch_user.php")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.address) {
+                        const userAddress = data.address;
+                        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(userAddress)}&key=YOUR_API_KEY`)
+                            .then(response => response.json())
+                            .then(geoData => {
+                                if (geoData.status === "OK") {
+                                    const userLocation = geoData.results[0].geometry.location;
+                                    const map = new google.maps.Map(document.getElementById("map"), {
+                                        center: userLocation,
+                                        zoom: 14
+                                    });
+
+                                    // Find nearby scrap buyers
+                                    const service = new google.maps.places.PlacesService(map);
+                                    service.nearbySearch({
+                                        location: userLocation,
+                                        radius: 5000,
+                                        type: ["recycling_center"]
+                                    }, (results, status) => {
+                                        if (status === google.maps.places.PlacesServiceStatus.OK) {
+                                            results.forEach(place => {
+                                                new google.maps.Marker({
+                                                    position: place.geometry.location,
+                                                    map: map,
+                                                    title: place.name
+                                                });
+                                            });
+                                        }
+                                    });
+                                }
+                            });
+                    } else {
+                        alert("User address not found!");
+                    }
+                });
+        }
+    </script>
+</head>
+<body onload="initMap()">
+    <h1>Scrap Buyers Nearby</h1>
+    <div id="map" style="width: 100%; height: 500px;"></div>
+</body>
+</html>

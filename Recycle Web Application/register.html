@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">REVIV</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="form-container">
+        
+        <form action="register.php" method="POST">
+            <h1>Register</h1>
+            <div class="form-input">
+                <!-- <label for="fullName">Full Name:</label> -->
+                <input type="text" name="fullname" placeholder="Enter your Full Name" id="fullName" required>
+                <i class="ri-id-card-line"></i>
+            </div>
+        
+            <div class="form-input">
+                <!-- <label for="username">Username:</label> -->
+                <input type="text" name="username" placeholder="Enter Username" id="username" required>
+                <i class="ri-user-3-fill"></i>
+            </div>
+        
+            <div class="form-input">
+                <!-- <label for="address">Address:</label> -->
+                <input type="text" name="address" placeholder="Enter Address" id="address" required>
+                <i class="ri-home-5-line"></i>
+            </div>
+        
+            <div class="form-input">
+                <!-- <label for="email">Email:</label> -->
+                <input type="email" name="email" placeholder="Enter Email" id="email" required>
+                <i class="ri-mail-line"></i>
+            </div>
+        
+            <div class="form-input">
+                <!-- <label for="password">Password:</label> -->
+                <input type="password" name="password" placeholder="Enter Password" id="password" required>
+                <i class="ri-lock-2-line"></i>
+            </div>
+        
+            <div class="form-input">
+                <!-- <label for="reenterPassword">Re-enter Password:</label> -->
+                <input type="password" name="reenterpassword" placeholder="Enter your password again" id="reenterPassword" required>
+                <i class="ri-lock-password-line"></i>
+            </div>
+        
+            <button type="submit" class="btn">Register</button>
+        </form>
+        
+
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+    <footer>
+        <p>&copy; 2025 REVIV - Recycling for a Better Future</p>
+    </footer>
+</body>
+</html>
+
+
