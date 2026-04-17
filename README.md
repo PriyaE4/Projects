@@ -2,6 +2,36 @@
 
 ---
 
+### 🛡️ **CyberShield – Malicious Website Blocker**
+
+**CyberShield** is a browser-based security system designed to protect users from phishing and malicious websites in real time. It works as a smart detection layer that analyzes URLs before allowing access, helping users avoid online threats.
+
+#### 🔧 Features
+
+* **Real-Time URL Detection** – Automatically scans URLs when a user visits a website
+* **Phishing Detection Algorithm** – Evaluates websites using multiple security parameters
+* **Warning Pop-up System** – Alerts users before accessing suspicious or unsafe sites
+* **Browser Extension Integration** – Works directly within the browser for seamless protection
+* **Scoring Mechanism** – Assigns risk scores to determine website safety
+
+#### 🛠️ How It Works
+
+1. **User Visits Website** – URL is captured by the browser extension
+2. **URL Analysis** – System checks features like domain, HTTPS, length, etc.
+3. **Risk Evaluation** – A score is calculated based on phishing indicators
+4. **Alert Display** – User gets a warning if the site is unsafe
+
+#### 💻 Tech Stack
+
+* **Frontend:** HTML, CSS, JavaScript
+* **Backend:** Python (for phishing detection logic)
+* **Database:** (Optional – for storing URLs/logs)
+* **Tools:** Browser Extension APIs (Chrome/Edge)
+
+🛡️ *Built to enhance user safety and prevent cyber threats while browsing.*
+
+---
+
 ### ♻️ **Recycle Web Application**
 
 **Recycle Smart** is a web application that helps users locate nearby scrap buyers based on the type of material they wish to recycle. Our mission is to make recycling more accessible, efficient, and community-driven.
