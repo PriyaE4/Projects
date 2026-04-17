@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CyberShield</title>
+    <style>
+      :root {
+        --bg: #0a0e27;
+        --card: rgba(26, 31, 58, 0.92);
+        --muted: #a0aec0;
+        --accent: #00d4ff;
+        --danger: #ff3366;
+        --ok: #00ff88;
+        --warn: #ffd166;
+      }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: var(--bg);
+        color: white;
+        width: 360px;
+      }
+      .wrap { padding: 14px; }
+      .card {
+        background: var(--card);
+        border: 1px solid rgba(0, 212, 255, 0.18);
+        border-radius: 14px;
+        padding: 14px;
+      }
+      h1 {
+        margin: 0 0 6px 0;
+        font-size: 16px;
+        color: var(--accent);
+      }
+      .sub {
+        margin: 0 0 12px 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.35;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 10px 0;
+      }
+      .btn {
+        border: 0;
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-weight: 800;
+        cursor: pointer;
+        background: #4a5568;
+        color: white;
+      }
+      .btn:hover { filter: brightness(0.95); }
+      .list {
+        margin-top: 10px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        padding-top: 10px;
+      }
+      .item {
+        display: grid;
+        grid-template-columns: 12px 1fr;
+        gap: 10px;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      .dot { width: 10px; height: 10px; border-radius: 999px; margin-top: 3px; }
+      .dot.safe { background: var(--ok); }
+      .dot.suspicious { background: var(--warn); }
+      .dot.phishing { background: var(--danger); }
+      .url {
+        font-size: 12px;
+        word-break: break-word;
+      }
+      .meta {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 3px;
+      }
+      .empty {
+        color: var(--muted);
+        font-size: 12px;
+        padding: 10px 0 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <h1>CyberShield Browser Guard</h1>
+        <p class="sub">Recent risky URLs detected during browsing (stored locally in this browser).</p>
+
+        <div class="row">
+          <div style="font-size:12px;color:var(--muted)"><span id="count">0</span> saved</div>
+          <button class="btn" id="clear">Clear</button>
+        </div>
+
+        <div class="list" id="list"></div>
+        <div class="empty" id="empty" style="display:none">No risky URLs saved yet.</div>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
+

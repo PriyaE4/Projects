@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CyberShield Warning</title>
+    <style>
+      :root {
+        --bg: #0a0e27;
+        --card: #1a1f3a;
+        --muted: #a0aec0;
+        --accent: #00d4ff;
+        --danger: #ff3366;
+        --ok: #00ff88;
+        --warn: #ffd166;
+      }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: radial-gradient(circle at 20% 20%, #14204a 0%, var(--bg) 55%);
+        color: white;
+      }
+      .wrap {
+        max-width: 980px;
+        margin: 40px auto;
+        padding: 0 16px;
+      }
+      .card {
+        background: rgba(26, 31, 58, 0.92);
+        border: 1px solid rgba(0, 212, 255, 0.18);
+        border-radius: 16px;
+        box-shadow: 0 18px 50px rgba(0, 212, 255, 0.12);
+        padding: 22px;
+      }
+      .title {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--accent);
+        margin: 0 0 8px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .badge {
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.4px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.06);
+        color: white;
+        text-transform: uppercase;
+      }
+      .badge.safe { border-color: rgba(0, 255, 136, 0.35); color: var(--ok); }
+      .badge.suspicious { border-color: rgba(255, 209, 102, 0.35); color: var(--warn); }
+      .badge.phishing { border-color: rgba(255, 51, 102, 0.35); color: var(--danger); }
+      .sub {
+        color: var(--muted);
+        margin: 0 0 16px 0;
+        line-height: 1.4;
+      }
+      .kv {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        gap: 10px 14px;
+        margin: 16px 0;
+      }
+      .k { color: var(--muted); }
+      .v { word-break: break-all; }
+      .actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 18px;
+        flex-wrap: wrap;
+      }
+      button {
+        border: 0;
+        border-radius: 10px;
+        padding: 12px 16px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .btn-open { background: var(--ok); color: #042112; }
+      .btn-cancel { background: var(--danger); color: white; }
+      .btn-open:hover { filter: brightness(0.95); }
+      .btn-cancel:hover { filter: brightness(0.95); }
+      .note {
+        color: var(--muted);
+        font-size: 12px;
+        margin-top: 14px;
+      }
+      details {
+        margin-top: 16px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 800;
+        color: white;
+      }
+      ul {
+        margin: 10px 0 0 18px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.55);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+      }
+      .modal.open { display: flex; }
+      .modal-card {
+        width: min(560px, 100%);
+        background: rgba(26, 31, 58, 0.98);
+        border: 1px solid rgba(0, 212, 255, 0.18);
+        border-radius: 14px;
+        box-shadow: 0 18px 50px rgba(0, 212, 255, 0.16);
+        padding: 18px;
+      }
+      .modal-title {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 900;
+        color: white;
+      }
+      .modal-text {
+        margin: 10px 0 14px 0;
+        color: var(--muted);
+        line-height: 1.4;
+        word-break: break-word;
+      }
+      .modal-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .btn-secondary {
+        background: #4a5568;
+        color: white;
+      }
+      .btn-secondary:hover { filter: brightness(0.95); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <div class="title">
+          CyberShield Warning
+          <span class="badge" id="levelBadge">Checking…</span>
+        </div>
+        <p class="sub">
+          This page is a safety gate. CyberShield analyzes the URL before opening it.
+          Risky URLs are saved locally so you can review them from the extension icon.
+        </p>
+        <div class="kv">
+          <div class="k">URL</div><div class="v" id="url"></div>
+          <div class="k">Domain</div><div class="v" id="domain">Loading...</div>
+          <div class="k">Level</div><div class="v" id="risk">Loading...</div>
+          <div class="k">Score</div><div class="v" id="score">Loading...</div>
+        </div>
+        <div class="actions">
+          <button class="btn-open" id="openSite">Open Website</button>
+          <button class="btn-cancel" id="dontOpen">Don't Open</button>
+        </div>
+        <div class="note" id="note"></div>
+
+        <details id="details">
+          <summary>Why this was flagged?</summary>
+          <div class="kv" style="margin-top:12px">
+            <div class="k">Signals</div><div class="v"><ul id="reasons"></ul></div>
+            <div class="k">Keywords</div><div class="v"><ul id="hits"></ul></div>
+            <div class="k">Sources</div><div class="v"><ul id="sources"></ul></div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="modal" id="openConfirmModal" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <p class="modal-title">Are you sure?</p>
+        <div class="modal-text" id="openConfirmText"></div>
+        <div class="modal-actions">
+          <button class="btn-open" id="openConfirmYes">Yes, Open</button>
+          <button class="btn-secondary" id="openConfirmNo">No</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="blockModal" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <p class="modal-title">Block This Site?</p>
+        <div class="modal-text" id="blockText"></div>
+        <div class="modal-actions">
+          <button class="btn-cancel" id="blockYes">Yes, Open CyberShield</button>
+          <button class="btn-secondary" id="blockNo">No</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="warning.js"></script>
+  </body>
+</html>
