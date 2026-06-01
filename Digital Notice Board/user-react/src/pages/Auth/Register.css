@@ -1,0 +1,20 @@
+.register-card{
+width:380px;
+max-height:90vh;
+overflow-y:auto;
+}
+
+.login-card select{
+width:100%;
+padding:10px;
+margin-bottom:15px;
+border-radius:6px;
+border:1px solid #ccc;
+background:white;
+}
+
+.success{
+color:green;
+font-size:14px;
+margin-bottom:10px;
+}
