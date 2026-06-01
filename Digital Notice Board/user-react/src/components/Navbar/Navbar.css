@@ -1,0 +1,55 @@
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:linear-gradient(90deg,#141e30,#243b55);
+color:white;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+.logo{
+font-size:22px;
+font-weight:600;
+cursor:pointer;
+}
+
+.nav-center button{
+margin:0 10px;
+padding:8px 16px;
+border:none;
+background:transparent;
+color:white;
+font-size:15px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.nav-center button:hover{
+color:#ffd369;
+}
+
+.nav-right{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.user-info{
+font-size:14px;
+opacity:0.9;
+}
+
+.logout-btn{
+padding:7px 14px;
+border:none;
+border-radius:5px;
+background:#ff4b5c;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.logout-btn:hover{
+background:#ff1e40;
+}
