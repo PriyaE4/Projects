@@ -1,0 +1,27 @@
+.ticker-wrapper{
+width:100%;
+overflow:hidden;
+background:#1d2671;
+color:white;
+padding:10px 0;
+font-weight:500;
+}
+
+.ticker{
+display:flex;
+width:max-content;
+animation:scroll 25s linear infinite;
+}
+
+.ticker span{
+padding-right:80px;
+}
+
+@keyframes scroll{
+0%{
+transform:translateX(0);
+}
+100%{
+transform:translateX(-50%);
+}
+}
