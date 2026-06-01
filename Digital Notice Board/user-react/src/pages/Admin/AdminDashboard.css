@@ -1,0 +1,7 @@
+.admin-container{padding:40px;}
+.admin-title{text-align:center;margin-bottom:40px;}
+.admin-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;}
+.admin-card{background:white;padding:30px;border-radius:12px;text-align:center;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:0.3s;font-size:18px;}
+.admin-card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,0.2);}
+.admin-card h3{margin-top:10px;}
+.admin-card p{font-size:14px;color:#555;}

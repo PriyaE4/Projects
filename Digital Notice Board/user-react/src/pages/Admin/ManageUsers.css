@@ -1,0 +1,107 @@
+.users-container{
+padding:40px;
+}
+
+.users-table{
+width:100%;
+border-collapse:collapse;
+background:white;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+border-radius:10px;
+overflow:hidden;
+}
+
+.users-table th{
+background:#243b55;
+color:white;
+padding:12px;
+}
+
+.users-table td{
+padding:12px;
+text-align:center;
+border-bottom:1px solid #eee;
+}
+
+.users-table tr:hover{
+background:#f5f5f5;
+}
+
+.user-row-selected{
+background:#eaf2ff;
+}
+
+.role-badge{
+padding:5px 10px;
+border-radius:6px;
+color:white;
+font-size:13px;
+}
+
+.role-badge.admin{
+background:#ff4d4d;
+}
+
+.role-badge.faculty{
+background:#ff9800;
+}
+
+.role-badge.coordinator{
+background:#2196f3;
+}
+
+.role-badge.student{
+background:#4caf50;
+}
+
+.coord-btn{
+margin-right:10px;
+padding:6px 10px;
+border:none;
+background:#2196f3;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+.delete-btn{
+padding:6px 10px;
+border:none;
+background:#ff4d4d;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+.coord-btn:hover{
+background:#1976d2;
+}
+
+.delete-btn:hover{
+background:#d32f2f;
+}
+
+.user-detail-card{
+margin-top:14px;
+margin-bottom:8px;
+background:white;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+border-radius:10px;
+padding:14px;
+border:1px solid #eef2f7;
+}
+
+.user-detail-head{
+display:flex;
+align-items:flex-start;
+justify-content:space-between;
+gap:12px;
+}
+
+.user-detail-grid{
+margin-top:12px;
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+gap:10px;
+color:#243b55;
+}
